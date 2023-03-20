@@ -1,0 +1,42 @@
+
+//@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+//@use '@angular/material' as mat;
+/*
+$site-color: #EEEEEE;
+$site-selected-color: #13f9f9;
+$site-background-color: #EEEEEE;
+*/
+
+@import './node_modules/bootstrap/scss/bootstrap';
+
+.toolbar {
+    width: 100%;
+//    background-color: $site-background-color;
+}
+
+.toolbar-content {
+//    background-color: $site-background-color;
+    max-width: 1200px;
+    margin: auto;
+    height: auto
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.cache {
+    display: none;
+  }
+
+  mat-icon {
+    height: 100%;
+    display: flex;   
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .active-item {
+    color: lightseagreen;
+    background-color: red
+  }

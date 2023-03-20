@@ -1,0 +1,69 @@
+
+
+<div class="rounded-2 m-auto my-4 col-sm-10 col-lg-8 col-xl-6 list-group list-group-item {{displayPage}}"  style="display: block; height: 95%; overflow-y: auto; overflow-x: hidden; font-size: 1rem;">
+    <div class="page-users d-flex flex-column px-5 pt-5">
+        <div *ngFor="let user of users" class="d-flex flex-row users border-bottom py-3 {{email === user.email ? 'user-page-selected' : ''}}">
+            <div (click)="navigateToUser(user.email, user.id, pageActive)" class="user-profil mx-3">
+                <svg xmlns="http://www.w3.org/2000/svg" height="100%" fill="#c4f2dc" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                </svg>
+            </div>
+            <div  (click)="navigateToUser(user.email, user.id, pageActive)" class="d-flex flex-column pl-2">
+                <p class="m-0 text-wrap">Email : {{user.email}}</p>
+                <p class="m-0">Prénom : {{user.firstname}}</p>
+                <p class="m-0">Nom : {{user.lastname}}</p>
+            </div>
+            <div class="d-flex flex-column ms-auto me-2">
+                <div (click)="deleteUser($event, user.id)" class="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                </div>
+                <div>
+                    <svg (click)="putUser(user, [''])" xmlns= "http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check {{user.roles[0] === 'ROLE_ADMIN' ? '' : 'cache'}}" viewBox="0 0 16 16"><title>Administrateur</title>
+                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                        <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                    </svg>
+                    <svg (click)="putUser(user, ['ROLE_ADMIN'])" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#CCCCCC" class="bi bi-person {{user.roles[0] === 'ROLE_ADMIN' ? 'cache' : ''}}" viewBox="0 0 16 16" ><title>Utilisateur</title>
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-auto mb-2 d-flex flex-row-reverse">
+            <mat-paginator [length]="countUsers"
+                [pageSize]="usersByPage"
+                [pageSizeOptions]="[7, 10, 25, 100]"
+                [pageIndex]="pageActive"
+                (page)="pageEvent = changePage($event)">
+            </mat-paginator>
+        </div>
+<!--            <div class="mt-auto mb-2 d-flex flex-row-reverse">
+                <nav aria-label="...">
+                <ul class="pagination pagination-success">
+                    <li class="page-item {{pageActive === 1 ? 'disabled' : ''}}">
+                        <span (click)="getUsers(pageActive - 1, '')" class="page-link">Previous</span>
+                    </li>
+                    <li *ngFor="let page of pages" class="page-item">
+                        <a (click)="getUsers(page, '')" 
+                            class="page-link link-bg-success {{pageActive === page ? 'active' : ''}}"
+                            *ngIf="page > pageActive - 3 && page < pageActive + 3"
+                            >
+                            {{page}}
+                        </a>
+                    </li>
+                    <li class="page-item {{pageActive === pages.length ? 'disabled' : ''}}">
+                        <span (click)="getUsers(pageActive + 1, '')" class="page-link">Next</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>-->
+    </div>
+</div>
+
+
+<div>
+    <p>{{errorMessage}}</p>
+</div>

@@ -1,0 +1,76 @@
+
+//@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+//@use "@angular/material" as mat;
+/*
+@include mat.core();
+
+$my-palette: (
+ 50: #e8eaf6,
+ 100: #c5cae9,
+ 200: #9fa8da,
+ 300: #bbbbbb,
+ 400: #bbbbbb,
+ 500: #31cbf5,
+ 600: #99a7e9,
+ 700: #99a7e9,
+ 800: #99a7e9,
+ 900: #99a7e9,
+ // ... continues to 900
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: white,
+   400: white,
+   500: rgb(14, 13, 13),
+   600: white,
+   700: white,
+   800: white,
+   900: white,
+   // ... continues to 900
+ )
+);
+
+$my-app-primary: mat.define-palette($my-palette);
+$my-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$my-app-warn: mat.define-palette(mat.$red-palette);
+
+$my-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-app-primary,
+      accent: $my-app-accent,
+      warn: $my-app-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-app-theme);
+*/
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html {
+  font-size: 13px;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+.cache {
+  display: none;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+//@import '/node_modules/bootstrap/scss/bootstrap.scss';

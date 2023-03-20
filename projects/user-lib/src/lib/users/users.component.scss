@@ -1,0 +1,24 @@
+
+@import './node_modules/bootstrap/scss/bootstrap';
+
+.user-card {
+    display: flex;   
+    flex-direction: row;
+}
+
+.user-profil {
+    display: block;
+    width: 60px;
+}
+
+.page-users {
+    height: 100%;
+}
+
+.users div {
+    height: 100%;
+}
+
+.users div p {
+    overflow-wrap:normal;
+}

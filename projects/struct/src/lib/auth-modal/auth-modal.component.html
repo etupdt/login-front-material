@@ -1,0 +1,93 @@
+
+<div class="model-content py-5">
+    <ng-container *ngIf="activeModal==='signin'" [ngTemplateOutlet]="signin"></ng-container>
+    <ng-container *ngIf="activeModal==='signup'" [ngTemplateOutlet]="signup"></ng-container>
+    <ng-container *ngIf="activeModal==='forgotpassword'" [ngTemplateOutlet]="forgotpassword"></ng-container>
+</div>
+
+<ng-template #signin>
+  <div mat-dialog-content [formGroup]="signInForm">
+    <h2 mat-dialog-title>Veuillez saisir vos identifiants</h2>
+      <div class="modal-icon">
+        <svg class="bi bi-person" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16" preserveAspectRatio="xMidYMin">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+        </svg>
+      </div>
+      <mat-form-field class="field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" name="email" placeholder="Email"/>
+      </mat-form-field>
+      <mat-form-field class="field">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput formControlName="password" type="password" name="password" placeholder="Password"/>
+      </mat-form-field>
+      <div class="button-row field">
+        <button class="field" mat-raised-button [disabled]="signInForm.invalid" (click)="closeModal('signin')">Connexion</button>
+      </div>
+      <div class="field">
+        <a mat-flat-button (click)="changeModal('signup')" class="nav-item">Vous n'avez pas de compte ?</a>
+      </div>
+      <div class="field">
+        <a mat-flat-button (click)="changeModal('forgotpassword')" class="nav-item">Mot de passe oublié ?</a>
+      </div>
+      <div>
+        <p class="text-danger">{{errorMessage}}</p>
+      </div>
+  </div>    
+</ng-template>
+
+<ng-template #signup>
+  <div mat-dialog-content [formGroup]="signUpForm">
+    <h2 mat-dialog-title>Création de compte</h2>
+      <div class="modal-icon">
+        <svg class="bi bi-person" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16" preserveAspectRatio="xMidYMin">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+        </svg>
+      </div>
+      <mat-form-field class="field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" name="email" placeholder="Email"/>
+      </mat-form-field>
+      <mat-form-field class="field">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput formControlName="password" type="password" name="password" placeholder="Password"/>
+      </mat-form-field>
+      <mat-form-field class="field">
+        <mat-label>Confirmation mot de passe</mat-label>
+        <input matInput formControlName="confirmpassword" type="password" name="confirmpassword" placeholder="Confirm Password"/>
+      </mat-form-field>
+      <div class="button-row field">
+        <button class="field" mat-raised-button [disabled]="signInForm.invalid">Connexion</button>
+      </div>
+      <div class="field">
+        <a mat-flat-button (click)="changeModal('signin')" class="nav-item">Vous avez déjà un compte ?</a>
+      </div>
+      <div>
+        <p class="text-danger">{{errorMessage}}</p>
+      </div>
+  </div>    
+</ng-template>
+
+<ng-template #forgotpassword>
+  <div mat-dialog-content [formGroup]="forgotPasswordForm">
+    <h2 mat-dialog-title>Renouvellement mot de passe</h2>
+      <div class="modal-icon">
+        <svg class="bi bi-person" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16" preserveAspectRatio="xMidYMin">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+        </svg>
+      </div>
+      <mat-form-field class="field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" name="email" placeholder="Email"/>
+      </mat-form-field>
+      <div class="button-row field">
+        <button class="field" mat-raised-button [disabled]="signInForm.invalid">Connexion</button>
+      </div>
+      <div class="field">
+        <a mat-flat-button (click)="changeModal('signin')" class="nav-item">Retour à l'authentification ?</a>
+      </div>
+      <div>
+        <p class="text-danger">{{errorMessage}}</p>
+      </div>
+  </div>    
+</ng-template>
