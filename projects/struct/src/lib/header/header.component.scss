@@ -7,8 +7,6 @@ $site-selected-color: #13f9f9;
 $site-background-color: #EEEEEE;
 */
 
-@import './node_modules/bootstrap/scss/bootstrap';
-
 .toolbar {
     width: 100%;
 //    background-color: $site-background-color;
@@ -31,7 +29,7 @@ $site-background-color: #EEEEEE;
 
   mat-icon {
     height: 100%;
-    display: flex;   
+    display: flex;
     justify-content: center;
     flex-direction: column;
   }

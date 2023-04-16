@@ -1,14 +1,13 @@
 
-@import './node_modules/bootstrap/scss/bootstrap';
+//@import './node_modules/bootstrap/scss/bootstrap';
 
 .field {
     width: 350px;
     margin-bottom: 10px;
-    display: flex;   
+    display: flex;
     justify-content: center;
 }
 
 .user-page mat-grid-tile mat-form-field {
   width: 100%;
 }
-    
