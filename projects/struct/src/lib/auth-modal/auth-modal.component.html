@@ -33,7 +33,7 @@
       <div>
         <p class="text-danger">{{errorMessage}}</p>
       </div>
-  </div>    
+  </div>
 </ng-template>
 
 <ng-template #signup>
@@ -57,7 +57,7 @@
         <input matInput formControlName="confirmpassword" type="password" name="confirmpassword" placeholder="Confirm Password"/>
       </mat-form-field>
       <div class="button-row field">
-        <button class="field" mat-raised-button [disabled]="signInForm.invalid">Connexion</button>
+        <button class="field" mat-raised-button [disabled]="signUpForm.invalid">Connexion</button>
       </div>
       <div class="field">
         <a mat-flat-button (click)="changeModal('signin')" class="nav-item">Vous avez déjà un compte ?</a>
@@ -65,7 +65,7 @@
       <div>
         <p class="text-danger">{{errorMessage}}</p>
       </div>
-  </div>    
+  </div>
 </ng-template>
 
 <ng-template #forgotpassword>
@@ -81,7 +81,7 @@
         <input matInput formControlName="email" type="email" name="email" placeholder="Email"/>
       </mat-form-field>
       <div class="button-row field">
-        <button class="field" mat-raised-button [disabled]="signInForm.invalid">Connexion</button>
+        <button class="field" mat-raised-button [disabled]="forgotPasswordForm.invalid">Connexion</button>
       </div>
       <div class="field">
         <a mat-flat-button (click)="changeModal('signin')" class="nav-item">Retour à l'authentification ?</a>
@@ -89,5 +89,5 @@
       <div>
         <p class="text-danger">{{errorMessage}}</p>
       </div>
-  </div>    
+  </div>
 </ng-template>
