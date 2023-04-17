@@ -21,7 +21,7 @@ phases:
   post_build:
     commands:
       - cp appspec.yml dist/
-      - cp scripts dist/
+      - cp -r scripts dist/
       - cd dist
       - pwd
       - ls -lrt
