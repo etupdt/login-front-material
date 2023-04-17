@@ -57,7 +57,7 @@
         <input matInput formControlName="confirmpassword" type="password" name="confirmpassword" placeholder="Confirm Password"/>
       </mat-form-field>
       <div class="button-row field">
-        <button class="field" mat-raised-button [disabled]="signUpForm.invalid">Connexion</button>
+        <button class="field" mat-raised-button [disabled]="signUpForm.invalid" (click)="closeModal('signup')">Connexion</button>
       </div>
       <div class="field">
         <a mat-flat-button (click)="changeModal('signin')" class="nav-item">Vous avez déjà un compte ?</a>

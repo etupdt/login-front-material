@@ -12,14 +12,14 @@ import { AuthService } from '../auth.service';
 export class AuthModalComponent implements OnInit{
 
   activeModal: string = 'signin'
-  
+
   @ViewChild('modale')
   modale!: TemplateRef<any>;
 
   signInForm!: FormGroup
   signUpForm!: FormGroup
   forgotPasswordForm!: FormGroup
-  
+
   errorMessage!: string
 
   constructor(
@@ -36,7 +36,7 @@ export class AuthModalComponent implements OnInit{
     this.forgotpasswordForm()
 
 //    this.authentService.listenModal.subscribe((x) => {this.open(this.modale, x as string); console.log('next : ', x)})
-  
+
   }
 
   changeModal = (modal: string) => {
@@ -44,25 +44,26 @@ export class AuthModalComponent implements OnInit{
   }
 
   closeModal = (modale : string) => {
-    console.log('toto')
     this.dialog.closeAll();
     if (modale === 'signin')
       this.signin()
+    if (modale === 'signup')
+      this.signup()
 
   }
-  
+
   signinForm = () => {
     this.signInForm = this.formBuilder.group({
       email: ["denis-tavernier@wanadoo.fr", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
+      password: ["", [Validators.required, Validators.pattern(/[0-9a-zA-Z\$]{6,}/)]],
     })
   }
 
   signupForm = () => {
     this.signUpForm = this.formBuilder.group({
       email: ["denis-tavernier@wanadoo.fr", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
-      confirmpassword: ["", [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
+      password: ["", [Validators.required, Validators.pattern(/[0-9a-zA-Z\$]{6,}/)]],
+      confirmpassword: ["", [Validators.required, Validators.pattern(/[0-9a-zA-Z\$]{6,}/)]],
     })
   }
 
@@ -73,7 +74,7 @@ export class AuthModalComponent implements OnInit{
   }
 
   signin = () => {
-    
+
     const email = this.signInForm.get("email")!.value
     const password = this.signInForm.get("password")!.value
 
@@ -82,7 +83,7 @@ export class AuthModalComponent implements OnInit{
   }
 
   signup = () => {
-    
+
     const email = this.signUpForm.get("email")!.value
     const password = this.signUpForm.get("password")!.value
 
