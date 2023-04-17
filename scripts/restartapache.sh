@@ -21,7 +21,7 @@ sudo cp config/ssl/studi-public.crt /etc/httpd/ssl
 echo 'apache' | sudo tee -a $log
 
 cat /etc/httpd/conf/httpd.conf | grep -v "httpd-vhosts-7443.conf" | sudo tee /etc/httpd/conf/httpd.conf > /dev/null
-echo "Include /var/www/html/evaluation2/scripts/httpd-vhosts-7443.conf" | sudo tee -a /etc/httpd/conf/httpd.conf > /dev/null
+echo "Include /var/www/html/login_front_material/scripts/httpd-vhosts-7443.conf" | sudo tee -a /etc/httpd/conf/httpd.conf > /dev/null
 
 cat /etc/httpd/conf/httpd.conf | grep -v "Listen 7443" | sudo tee /etc/httpd/conf/httpd.conf > /dev/null
 echo "Listen 7443" | sudo tee -a /etc/httpd/conf/httpd.conf > /dev/null

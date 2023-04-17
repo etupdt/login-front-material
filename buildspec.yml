@@ -21,9 +21,12 @@ phases:
   post_build:
     commands:
       - cp appspec.yml dist/
+      - cp scripts dist/
       - cd dist
+      - pwd
       - ls -lrt
       - echo Build completed on `date`
 artifacts:
+  base-directory: dist
   files:
-    - "./**/*"
+    - "**/*"
