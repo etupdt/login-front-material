@@ -20,8 +20,9 @@ phases:
       - npm prune --production
   post_build:
     commands:
-      - mv appspec.yml dist/
+      - cp appspec.yml dist/
       - cd dist
+      - ls -lrt
       - echo Build completed on `date`
 artifacts:
   files:

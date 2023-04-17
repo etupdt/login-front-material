@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html/evaluation2
+    destination: /var/www/html/login_front_material
 hooks:
    BeforeInstall:
     - location: scripts/installapache.sh
