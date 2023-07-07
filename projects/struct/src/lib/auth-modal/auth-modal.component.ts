@@ -55,7 +55,7 @@ export class AuthModalComponent implements OnInit{
   signinForm = () => {
     this.signInForm = this.formBuilder.group({
       email: ["denis-tavernier@wanadoo.fr", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.pattern(/[0-9a-zA-Z\$]{6,}/)]],
+      password: ["password", [Validators.required, Validators.pattern(/[0-9a-zA-Z\$]{6,}/)]],
     })
   }
 

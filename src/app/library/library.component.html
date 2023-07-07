@@ -1,0 +1,38 @@
+
+<mat-drawer-container class="library-container">
+  <mat-drawer class="sidenav" mode="side" opened>
+    <mat-list role="list">
+      <div [ngClass]="getMenuDestinations()[0].classe"
+        (click)="navigateToOptionLibrary(0)">
+        Livres
+      </div>
+      <div [ngClass]="getMenuDestinations()[1].classe"
+        (click)="navigateToOptionLibrary(1)">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Livre :&nbsp;<i>{{getLivre().titre}}</i>
+      </div>
+      <div [ngClass]="getMenuDestinations()[2].classe"
+        (click)="navigateToOptionLibrary(2)">
+        Auteurs
+      </div>
+      <div [ngClass]="getMenuDestinations()[3].classe"
+        (click)="navigateToOptionLibrary(3)">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auteur :&nbsp;<i>{{getAuteur().prenom}} {{getAuteur().nom}}</i>
+      </div>
+      <div [ngClass]="getMenuDestinations()[4].classe"
+        (click)="navigateToOptionLibrary(4)">
+        Adhérents
+      </div>
+      <div [ngClass]="getMenuDestinations()[5].classe"
+        (click)="navigateToOptionLibrary(5)">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adhérent :&nbsp;<i>{{getAdherent().prenom}} {{getAdherent().nom}}</i>
+      </div>
+      <div [ngClass]="getMenuDestinations()[6].classe"
+        (click)="navigateToOptionLibrary(6)">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Emprunt
+      </div>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

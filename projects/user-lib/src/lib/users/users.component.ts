@@ -7,20 +7,23 @@ import { User } from '../user.interface';
 @Component({
   selector: 'lib-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: [
+    './users.component.scss',
+    '../user-lib.component.scss',
+  ]
 })
 export class UsersComponent implements OnInit {
 
   users: User[] = []
-  
+
   countUsers: number = 0
 
   pageEvent!: PageEvent;
-  
+
   email = ''
 
   errorMessage: string = ''
-  
+
   displayPage = ''
 
   usersByPage = 7
@@ -43,7 +46,7 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser = (event: Event, id: number) => {
-    
+
     event.stopPropagation()
 
     this.userLibService.deleteUserById(id).subscribe({
@@ -66,7 +69,7 @@ export class UsersComponent implements OnInit {
   putUser = (user: User, roles: string[]) => {
 
     user.roles = roles
-    
+
     this.userLibService.putUserById(user).subscribe({
       next: (res: any) => {
         this.errorMessage = res
@@ -82,9 +85,14 @@ export class UsersComponent implements OnInit {
   }
 
   changePage = (event: PageEvent) => {
-    console.log(event)
-    if (event.pageIndex !== event.previousPageIndex)
+    if (event.pageIndex !== event.previousPageIndex) {
       this.getUsers(event.pageIndex, '')
+    }
+    if (this.usersByPage !== event.pageSize) {
+      this.pageActive = event.pageIndex
+      this.usersByPage = event.pageSize
+      this.getUsers(this.pageActive, '')
+    }
     return event
   }
 

@@ -1,0 +1,58 @@
+.library-container {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+.library-container .sidenav {
+  width: 20%;
+  font-size: 18px;
+}
+
+.external-zone {
+  width: 80%;
+  margin-top: 50px;
+  margin: auto;
+}
+.external-zone table {
+  margin: auto;
+}
+
+mat-grid-list {
+  margin: auto;
+  width: 70%;
+}
+
+.composant-page mat-grid-tile mat-form-field {
+  width: 100%;
+  margin: auto;
+  margin: 10px;
+}
+
+.buttons {
+  margin: auto;
+}
+
+.button {
+  width: 220px;
+  height: 50px;
+  margin: 10px;
+}
+
+mat-list-item span {
+  height: 100%;
+}
+
+.option {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.selected {
+  background-color: lightgray;
+}
+
+.categorie {
+  color: black;
+}/*# sourceMappingURL=library.component.css.map */

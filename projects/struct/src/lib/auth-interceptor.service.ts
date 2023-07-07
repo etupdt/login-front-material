@@ -9,8 +9,6 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   constructor(
     @Inject('optionsAuthent') private options: {useBackend: boolean},
-    private routes: Router,
-    private authService: AuthService
   ) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

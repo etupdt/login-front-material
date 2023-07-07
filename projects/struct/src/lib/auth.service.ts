@@ -17,6 +17,7 @@ export class AuthService implements OnInit, OnDestroy {
   listenEmail = new Observable( observer => { this.email = observer })
   role: any = 'ROLE_USER'
   listenRole = new Observable( observer => { this.role = observer })
+  routeSelected: string = 'home'
 
   constructor (
     @Inject('optionsAuthent') private options: {useBackend: boolean},
@@ -99,5 +100,5 @@ export class AuthService implements OnInit, OnDestroy {
 
     });
   }
-  
+
 }

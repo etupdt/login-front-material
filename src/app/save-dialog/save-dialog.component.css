@@ -1,0 +1,16 @@
+.dialog {
+  margin: 30px;
+}
+.dialog div {
+  margin-top: 20px;
+}
+.dialog .buttons {
+  margin-left: 60px;
+}
+.dialog .buttons button {
+  height: 30px;
+  border-radius: 5px;
+}
+.dialog .mat-dialog-actions {
+  background-color: red;
+}/*# sourceMappingURL=save-dialog.component.css.map */

@@ -1,0 +1,101 @@
+<div class="external-zone">
+  <div [formGroup]="adherentGroupForm" class="internal-zone">
+
+    <mat-grid-list cols="4" rowHeight="70px" mat-dialog-content class="composant-page">
+
+      <mat-grid-tile colspan="4">
+        <mat-grid-list cols="4" colspan="4" rowHeight="70px">
+          <mat-grid-tile colspan="2">
+            <mat-form-field appearance="fill">
+              <input matInput class="categorie" disabled name="id" placeholder="Id" type="text" id="Id" value="ADHERENT - Id : {{getAdherentId()}}"/>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2"></mat-grid-tile>
+        </mat-grid-list>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="4">
+        <mat-form-field appearance="fill">
+          <mat-label>Nom</mat-label>
+          <input matInput formControlName="nom" type="text" name="nom" placeholder="Nom de l'adherent" id="nom"/>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <mat-form-field appearance="fill">
+          <mat-label>Prénom</mat-label>
+          <input matInput formControlName="prenom" type="text" name="prenom" placeholder="Prénom de l'adherent" id="prenom" value=""/>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <mat-form-field appearance="fill">
+          <mat-label>Téléphone</mat-label>
+          <input matInput formControlName="telephone" type="text" name="telephone" placeholder="Téléphone de l'adherent" id="telephone" value=""/>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="text" name="email" placeholder="Email de l'adherent" id="email" value=""/>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <mat-form-field appearance="fill">
+          <mat-label>Caution</mat-label>
+          <input matInput formControlName="caution" type="text" name="caution" placeholder="Caution de l'adherent" id="caution" value=""/>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">Emprunts</mat-grid-tile>
+    </mat-grid-list>
+
+        <table mat-table [dataSource]="emprunts" class="emprunts-card">
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> Id. </th>
+              <td mat-cell *matCellDef="let element"> {{element.emprunt_id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="titre">
+              <th mat-header-cell *matHeaderCellDef> Titre </th>
+              <td mat-cell *matCellDef="let element"> {{element.exemplaire.livre.titre}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="exemplaire">
+              <th mat-header-cell *matHeaderCellDef> Ex. </th>
+              <td mat-cell *matCellDef="let element"> {{element.exemplaire.exemple_id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef> Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.dateEmprunt}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="retour">
+              <th mat-header-cell *matHeaderCellDef> Retour </th>
+              <td mat-cell *matCellDef="let element"> {{element.dateRetour}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="modify">
+              <th mat-header-cell *matHeaderCellDef>Modifier</th>
+              <td mat-cell *matCellDef="let element">
+                <svg (click)="navigateTo(6, element.emprunt_id)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                </svg>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="empruntDisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: empruntDisplayedColumns;"></tr>
+
+          </table>
+
+      <mat-grid-list rowHeight="70px" cols="4">
+        <mat-grid-tile colspan="4"></mat-grid-tile>
+        <mat-grid-tile colspan="4">
+          <button class="button" mat-raised-button [disabled]="adherentGroupForm.invalid" (click)="adherentSauvegarder()">Sauvegarder</button>
+          <button class="button" mat-raised-button (click)="reinit()">Nouvel adherent</button>
+          <button class="button" mat-raised-button  (click)="navigateTo(6)">Ajouter un Emprunt</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+  </div>
+</div>

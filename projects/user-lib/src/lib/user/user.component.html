@@ -1,142 +1,71 @@
 
-<div class="rounded-2 m-auto my-4 col-sm-10 col-lg-8 col-xl-6 list-group list-group-item"  style="display: block; height: 95%; overflow-y: auto; overflow-x: hidden; font-size: 1rem;">
-<div [formGroup]="userGroupForm" class="p-5">
-  <mat-grid-list cols="4" rowHeight="70px" mat-dialog-content class="user-page">
-
-    <mat-grid-tile colspan="4">
-      <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" placeholder="Email" type="email" id="inputEmail"/>
-      </mat-form-field>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="2">
-      <mat-form-field appearance="fill">
-        <mat-label>Prénom</mat-label>
-        <input matInput formControlName="firstname" type="text" name="firstname" placeholder="Preénom" id="inputFirstname"/>
-      </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2">
-      <mat-form-field appearance="fill">
-        <mat-label>Nom</mat-label>
-        <input matInput formControlName="lastname" type="text" name="lastname" placeholder="Nom" id="inputLastname"/>
-      </mat-form-field>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="4">
-      <mat-form-field appearance="fill">
-        <mat-label>Adresse</mat-label>
-        <input matInput formControlName="address"  placeholder="12 rue Principale" id="inputAddress" name="inputAddress"/>
-<!--        <small [style.color]="'red'" *ngIf="inputAddress.length < 4">{{password.errors.message}}</small>-->
-      </mat-form-field>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="4">
-      <mat-form-field appearance="fill">
-        <mat-label>Complément d'adresse</mat-label>
-        <input matInput formControlName="address2" placeholder="Appartement, studio, ou étage" id="inputAddress2"/>
-      </mat-form-field>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1">
-      <mat-form-field appearance="fill">
-        <mat-label>Code Postal</mat-label>
-        <input matInput formControlName="codepostal" type="text" name="codepostal" placeholder="codepostal" id="inputCodePostal"/>
-      </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="3">
-      <mat-form-field appearance="fill">
-        <mat-label>Localité</mat-label>
-        <input matInput formControlName="city" type="text" name="city" placeholder="city" id="inputCity"/>
-      </mat-form-field>
-    </mat-grid-tile>
-
-    <mat-grid-tile></mat-grid-tile>
-    <mat-grid-tile>
-        <button class="field" mat-raised-button [disabled]="userGroupForm.invalid" (click)="putUser()">Sauvegarder</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button class="field" mat-raised-button (click)="navigateToUsers(user.email)">Abandonner</button>
-    </mat-grid-tile>
-    <mat-grid-tile></mat-grid-tile>
-
-  </mat-grid-list>
-</div>
-</div>
- <!--
-  <div>
-      Données Personnelles
+<div class="external-zone">
+  <div [formGroup]="userGroupForm" class="internal-zone">
+    <div class="user-profil">
+      <svg xmlns="http://www.w3.org/2000/svg" height="100%" fill="#c4f2dc" class="bi bi-person-fill" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+      </svg>
     </div>
-    <div>
-      <form [formGroup]="userGroupForm" (ngSubmit)="putUser()">
-      <mat-grid-list cols="2" rowHeight="30px" mat-dialog-content [formGroup]="userGroupForm">
-        <mat-grid-tile>
-          <mat-form-field class="field">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email" type="email" name="email" placeholder="Email" id="inputEmail"/>
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-form-field class="field">
-            <label for="inputPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword">  
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>3</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
-      </mat-grid-list>
-      
-     <div class="col-md-6">
-        <label for="inputEmail" class="form-label">Email</label>
-        <input formControlName="email" type="email" class="form-control" id="inputEmail">
-      </div>
-      <div class="col-md-6">
-        <label for="inputPassword" class="form-label">Password</label>
-        <input type="password" class="form-control" id="inputPassword">
-      </div>
-      <div class="col-md-6">
-        <label for="inputLastname" class="form-label">Nom</label>
-        <input formControlName="lastname" type="text" class="form-control" id="inputLastname">
-      </div>
-      <div class="col-md-6">
-        <label for="inputFirstname" class="form-label">Prénom</label>
-        <input formControlName="firstname" type="text" class="form-control" id="inputFirstname">
-      </div>
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Adresse</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="12 rue Principale">
-      </div>
-      <div class="col-12">
-        <label for="inputAddress2" class="form-label">Adresse 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Appartement, studio, ou étage">
-      </div>
-      <div class="col-md-6">
-        <label for="inputCity" class="form-label">Localité</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label">Pays</label>
-        <select id="inputState" class="form-select">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <label for="inputZip" class="form-label">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Check me out
-          </label>
-        </div>
-      </div>
-      <div class="btn-group">
-        <button type="submit" [disabled]="userGroupForm.invalid" class="btn btn-outline-primary mt-4">Enregistrer</button>
-        <button (click)="navigateToUsers(user.email)" class="btn btn-outline-primary mt-4">Annuler</button>
-      </div>
-    </div>
-  -->  
-  
+
+    <mat-grid-list cols="4" rowHeight="70px" mat-dialog-content class="user-page">
+
+      <mat-grid-tile colspan="4">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Email" type="email" id="inputEmail"/>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="2">
+        <mat-form-field appearance="fill">
+          <mat-label>Prénom</mat-label>
+          <input matInput formControlName="firstname" type="text" name="firstname" placeholder="Preénom" id="inputFirstname"/>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        <mat-form-field appearance="fill">
+          <mat-label>Nom</mat-label>
+          <input matInput formControlName="lastname" type="text" name="lastname" placeholder="Nom" id="inputLastname"/>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="4">
+        <mat-form-field appearance="fill">
+          <mat-label>Adresse</mat-label>
+          <input matInput formControlName="address"  placeholder="12 rue Principale" id="inputAddress" name="inputAddress"/>
+  <!--        <small [style.color]="'red'" *ngIf="inputAddress.length < 4">{{password.errors.message}}</small>-->
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="4">
+        <mat-form-field appearance="fill">
+          <mat-label>Complément d'adresse</mat-label>
+          <input matInput formControlName="address2" placeholder="Appartement, studio, ou étage" id="inputAddress2"/>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="1">
+        <mat-form-field appearance="fill">
+          <mat-label>Code Postal</mat-label>
+          <input matInput formControlName="codepostal" type="text" name="codepostal" placeholder="codepostal" id="inputCodePostal"/>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3">
+        <mat-form-field appearance="fill">
+          <mat-label>Localité</mat-label>
+          <input matInput formControlName="city" type="text" name="city" placeholder="city" id="inputCity"/>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile>
+          <button class="field" mat-raised-button [disabled]="userGroupForm.invalid" (click)="putUser()">Sauvegarder</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <button class="field" mat-raised-button (click)="navigateToUsers(user.email)">Abandonner</button>
+      </mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+
+    </mat-grid-list>
+  </div>
+</div>

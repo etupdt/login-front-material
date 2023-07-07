@@ -1,0 +1,24 @@
+
+.adherent-card {
+
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #d3d3d3;
+
+  .adherent-id {
+    flex: initial;
+    margin: 15px;
+    width: 50px
+  }
+
+  .adherent-infos {
+    flex: auto;
+    margin-top: 15px;
+  }
+
+  .adherent-icons {
+    margin: 25px;
+  }
+
+}
+

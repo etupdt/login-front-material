@@ -18,7 +18,8 @@ export class ErrorInterceptorService {
 
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        localStorage.removeItem('tokenAuth');
+// mis en commenatire temporairement pour faliciter le debogage
+//        localStorage.removeItem('tokenAuth');
         console.log(error);
 //        this.routes.navigate(['auth']);
 //        this.authentService.displayModale('signin')

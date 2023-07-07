@@ -1,0 +1,17 @@
+.adherent-card {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #d3d3d3;
+}
+.adherent-card .adherent-id {
+  flex: initial;
+  margin: 15px;
+  width: 50px;
+}
+.adherent-card .adherent-infos {
+  flex: auto;
+  margin-top: 15px;
+}
+.adherent-card .adherent-icons {
+  margin: 25px;
+}/*# sourceMappingURL=adherents.component.css.map */

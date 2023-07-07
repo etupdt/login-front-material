@@ -1,0 +1,17 @@
+.livre-card {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #d3d3d3;
+}
+.livre-card .livre-id {
+  flex: initial;
+  margin: 15px;
+  width: 50px;
+}
+.livre-card .livre-infos {
+  flex: auto;
+  margin-top: 15px;
+}
+.livre-card .livre-icons {
+  margin: 25px;
+}/*# sourceMappingURL=livres.component.css.map */

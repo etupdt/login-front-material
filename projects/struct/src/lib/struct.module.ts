@@ -19,6 +19,7 @@ import { AuthModalComponent } from './auth-modal/auth-modal.component';
 import { AuthInterceptorService } from './auth-interceptor.service';
 import { ErrorInterceptorService } from './error-interceptor.service';
 import { MenuItemPipe } from './menu-item.pipe';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { MenuItemPipe } from './menu-item.pipe';
     ReactiveFormsModule,
     BrowserModule,
     FormsModule,
-    CommonModule,
+    CommonModule, 
     MatDialogModule,
     MatToolbarModule,
     MatToolbarModule,
@@ -43,7 +44,8 @@ import { MenuItemPipe } from './menu-item.pipe';
     MatDialogModule,
     HttpClientModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   exports: [
     StructComponent,

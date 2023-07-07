@@ -1,0 +1,24 @@
+
+.auteur-card {
+
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #d3d3d3;
+
+  .auteur-id {
+    flex: initial;
+    margin: 15px;
+    width: 50px
+  }
+
+  .auteur-infos {
+    flex: auto;
+    margin-top: 15px;
+  }
+
+  .auteur-icons {
+    margin: 25px;
+  }
+
+}
+

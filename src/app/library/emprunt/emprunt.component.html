@@ -1,0 +1,80 @@
+<div class="external-zone">
+  <div [formGroup]="empruntGroupForm" class="internal-zone">
+
+    <mat-grid-list cols="16" rowHeight="70px" mat-dialog-content class="composant-page">
+
+      <mat-grid-tile colspan="16"></mat-grid-tile>
+      <mat-grid-tile colspan="16">
+          <mat-form-field appearance="fill">
+            <input matInput class="categorie" disabled name="id" placeholder="Id" type="text" id="Id" value="EMPRUNT - Id : {{getEmprunt().id}}"/>
+          </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="8">
+        <mat-form-field appearance="fill" class="example-form-field">
+          <mat-label>Date d'emprunt</mat-label>
+          <input matInput [matDatepicker]="dateEmprunt" [value]="dateEmprunt" formControlName="dateEmprunt">
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="dateEmprunt"></mat-datepicker-toggle>
+          <mat-datepicker #dateEmprunt></mat-datepicker>
+<!--          <mat-datepicker #dateEmprunt>
+            <mat-datepicker-actions>
+              <button mat-button matDatepickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            </mat-datepicker-actions>
+          </mat-datepicker>-->
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="8">
+        <mat-form-field appearance="fill" class="example-form-field">
+          <mat-label>Date de retour</mat-label>
+          <input matInput [matDatepicker]="dateRetour" formControlName="dateRetour">
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="dateRetour"></mat-datepicker-toggle>
+          <mat-datepicker #dateRetour></mat-datepicker>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="11">
+        <mat-form-field appearance="fill" (click)="selectLivre()">
+          <mat-label>Titre du Livre</mat-label>
+          <input matInput formControlName="titre" name="titre" placeholder="Titre" type="text" id="Titre" readonly/>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="5">
+        <mat-form-field appearance="fill">
+          <mat-label>Exemplaire</mat-label>
+          <mat-select [(value)]="exemplaireSelected" formControlName="exemplaire">
+            <mat-option
+              *ngFor="let exemplaire of exemplairesLight"
+              [value]="exemplaire.id">{{exemplaire.id}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="16">
+        <mat-form-field appearance="fill">
+          <mat-label>Adherent</mat-label>
+          <mat-select [(value)]="adherentSelected" formControlName="adherent">
+            <mat-option
+              *ngFor="let adherent of adherents"
+              [value]="adherent.id">{{adherent.prenom}} {{adherent.nom}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+    <mat-grid-list cols="4" rowHeight="70px">
+      <mat-grid-tile colspan="4"></mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <button class="button" mat-raised-button [disabled]="empruntGroupForm.invalid" (click)="empruntSauvegarder()">Sauvegarder</button>
+        <button class="button" mat-raised-button (click)="reinit()">Nouvel Emprunt</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </div>
+</div>

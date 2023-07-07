@@ -8,7 +8,10 @@ import { User } from '../user.interface';
 @Component({
   selector: 'lib-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: [
+    './user.component.scss',
+    '../user-lib.component.scss',
+  ]
 })
 export class UserComponent implements OnInit {
 
@@ -81,7 +84,7 @@ export class UserComponent implements OnInit {
     this.user.email = this.userGroupForm.get("email")!.value
     this.user.firstname = this.userGroupForm.get("firstname")!.value
     this.user.lastname = this.userGroupForm.get("lastname")!.value
-    
+
     this.userLibService.putUserById(this.user).subscribe({
       next: (res: any) => {
         this.errorMessage = res
@@ -111,7 +114,7 @@ export class UserComponent implements OnInit {
   }
 
   navigateToUsers(email: string) {
-    if (+this.page > 0)
+    if (this.page !== '-1')
       this.router.navigate(['users'], {queryParams: {email: email, page: this.page}})
     else
       this.router.navigate(['home'])

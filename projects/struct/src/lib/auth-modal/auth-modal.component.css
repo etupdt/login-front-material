@@ -1,0 +1,28 @@
+ul {
+  margin: 20px;
+  padding: 0;
+}
+
+.field {
+  width: 350px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-icon {
+  color: white;
+  background-color: lightseagreen;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 3em;
+  width: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.modal-icon svg {
+  margin: auto;
+}/*# sourceMappingURL=auth-modal.component.css.map */

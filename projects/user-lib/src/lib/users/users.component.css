@@ -1,0 +1,38 @@
+.external-zone {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.external-zone .internal-zone {
+  max-height: 90%;
+  overflow-y: auto;
+}
+.external-zone .pagination {
+  margin: 20px;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #d3d3d3;
+}
+.user-card .user-profil {
+  flex: initial;
+  width: 80px;
+}
+.user-card .user-infos {
+  flex: auto;
+  margin-top: 15px;
+}
+.user-card .user-icons {
+  margin: 25px;
+}
+
+.users div {
+  height: 100%;
+}
+
+.users div p {
+  overflow-wrap: normal;
+}/*# sourceMappingURL=users.component.css.map */

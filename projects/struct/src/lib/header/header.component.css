@@ -1,0 +1,29 @@
+/*
+$site-color: #EEEEEE;
+$site-selected-color: #13f9f9;
+$site-background-color: #EEEEEE;
+*/
+.toolbar-content {
+  width: 100%;
+}
+
+.toolbar-text {
+  max-width: 1200px;
+  margin: auto;
+  height: auto;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.cache {
+  display: none;
+}
+
+mat-icon {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}/*# sourceMappingURL=header.component.css.map */
